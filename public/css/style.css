@@ -1,0 +1,20 @@
+.header{
+    height: 700px;
+    background-image: url(../images/parker-burchfield-tvG4WvjgsEY-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.jumbotron{
+    opacity: .95;
+    border: 1px solid black;
+}
+.admin{
+    color: rgb(141,141,141);
+}
+.admin:hover{
+    color:#FFF;
+}

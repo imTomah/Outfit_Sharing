@@ -13,7 +13,7 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $categories = ['Sweat', 'Tee-Shirt', 'Veste', 'Pantalon', 'Chaussure','Accessoire'];
+        $categories = ['Sweat', 'Tee-Shirt', 'Veste', 'Pantalon', 'Chaussure','Accessoires'];
         $tabObj = [];
         foreach ($categories as $cat) {
             $category = new Category();
