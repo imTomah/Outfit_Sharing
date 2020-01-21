@@ -13,11 +13,10 @@ class MainController extends AbstractController
      */
     public function index(ClothesRepository $repo)
     {
-        $products = $repo->findAll();
-        dump($products);
+        $clothes = $repo->findAll();
 
         return $this->render('main/index.html.twig', [
-            'products' => $products,
+            'clothes' => $clothes
         ]);
     }
 }

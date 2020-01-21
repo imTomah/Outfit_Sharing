@@ -24,6 +24,7 @@ class AppFixtures extends Fixture
 
         // Création d'une variable date 
         $dateNow = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
+        
         // Création d'un produit
         $product = new Clothes();
         $product 
@@ -35,7 +36,6 @@ class AppFixtures extends Fixture
             ->setNovelty(false)
             ->setCategory($tabObj[0])
             ->setUpdateTime($dateNow);
-
         $manager->persist($product);
         
         $manager->flush();

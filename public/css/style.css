@@ -18,3 +18,9 @@
 .admin:hover{
     color:#FFF;
 }
+
+.title_clothe{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

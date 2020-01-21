@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Clothes{% endblock %}
+{% block body %}
+<ol class="breadcrumb my-4 ml-4">
+  <li class="breadcrumb-item"><a href="{{ path('home') }}">Home</a></li>
+  <li class="breadcrumb-item active"><a href="{{ path('clothes_index') }}">Clothes Index</a></li>
+  <li class="breadcrumb-item active"><a href="{{ path('clothes_index') }}">Edit</a></li>
+</ol>
+    <a href="{{ path('clothes_index') }}" class="ml-5 btn btn-outline-secondary">Back to list</a>
+<div class="container">
+    <h1 class="title_clothe my-5">Edit Clothes</h1>
+
+    {{ include('clothes/_form.html.twig', {'button_label': 'Update'}) }}
+
+    {{ include('clothes/_delete_form.html.twig') }}
+</div>
+{% endblock %}

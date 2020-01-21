@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Clothes{% endblock %}
+
+{% block body %}
+{% for clothes in clothes %}
+    <div class="card ml-5 mb-3 col-4">
+  <h3 class="card-header">{{ clothes.Name }}</h3>
+  <div class="card-body">
+    <h6 class="card-subtitle text-muted mb-2">Marque :</h6>
+    <h5 class="card-title">{{ clothes.Brand }}</h5>
+  </div>
+  <img style="height: auto; width: 100%; display: block;" src="{{ asset('images/hoods.png') }}" alt="Card image">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Price : {{ clothes.Price }} EUR</li>
+    <li class="list-group-item">Novelty : {{ clothes.Novelty ? 'Yes' : 'No' }}</li>
+  </ul>
+  <div class="card-body">
+    <a href="{{ clothes.Link }}" target="_blank" class="card-link btn btn-outline-warning">Buy it!</a>
+    <a href="{{ path('clothes_show', {'id': clothes.id}) }}" class="card-link btn btn-outline-secondary">show</a>
+    <a href="{{ path('clothes_edit', {'id': clothes.id}) }}" class="card-link btn btn-outline-info">edit</a>
+  </div>
+  <div class="card-footer text-muted">
+    {{ clothes.UpdateTime ? clothes.UpdateTime|date('Y-m-d') : '' }}
+  </div>
+</div>
+{% endfor %}
+    <a href="{{ path('clothes_index') }}">back to list</a>
+
+    <a href="{{ path('clothes_edit', {'id': clothes.id}) }}" c>edit</a>
+
+    {{ include('clothes/_delete_form.html.twig') }}
+{% endblock %}

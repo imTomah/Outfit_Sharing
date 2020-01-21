@@ -3,5 +3,45 @@
 {% block title %}Outfit Sharing{% endblock %}
 
 {% block body %}
+<div class="header">
+        <div class="jumbotron">
+  <h1 class="display-3">OutFit Sharing</h1>
+  <p class="lead">Share your favorite outfit with your community on social media</p>
+  <hr class="my-4">
+  <p>Click the link bellow to follow the installation. </p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="https://github.com/imTomah/Outfit_Sharing" role="button" target="_blank">Learn more</a>
+  </p>
+</div>
+        </div>
+        <ol class="breadcrumb my-4 ml-4">
+            <li class="breadcrumb-item active">Home</li>
+        </ol>
+        <h2 class="my-5 title_clothe">Clothes Index</h2>
+<div class="container">
+<div class="row">
+    {% for clothes in clothes %}
+    <div class="card mb-3 mx-1 col" style="padding:0;">
+  <h3 class="card-header">{{ clothes.Name }}</h3>
+  <img style="height: auto; width: 100%; display: block;" src="{{ asset('images/hoods.png') }}" alt="Card image">
+  <ul class="list-group list-group-flush">
+  <div class="card-body">
+    <h6 class="card-subtitle text-muted mb-2">Brand :</h6>
+    <h5 class="card-title">{{ clothes.Brand }}</h5>
+  </div>
+    <li class="list-group-item">Price : {{ clothes.Price }} EUR</li>
+    <li class="list-group-item">Year : {{ clothes.Year ? clothes.Year|date('Y') : '' }}</li>
+    <li class="list-group-item">Novelty : {{ clothes.Novelty ? 'Yes' : 'No' }}</li>
+  </ul>
+  <div class="card-body">
+    <a href="{{ clothes.Link }}" target="_blank" class="card-link btn btn-outline-warning">Buy it!</a>
+  </div>
+  <div class="card-footer text-muted">
+    {{ clothes.UpdateTime ? clothes.UpdateTime|date('Y-m-d') : '' }}
+  </div>
+</div>
+{% endfor %}
+</div>
+</div>
 
 {% endblock %}
