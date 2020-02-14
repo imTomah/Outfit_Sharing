@@ -9,18 +9,18 @@
     </ol>
 
     <h1 class="my-4 title_clothe">Clothes index</h1>
-
+<a href="{{ path('clothes_new') }}" class="btn btn-outline-warning my-4 ml-5">Créé un nouvel article</a>
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Brand</th>
-                <th>Year</th>
-                <th>Link</th>
-                <th>Novelty</th>
-                <th style="padding: 24px 0;">Update at</th>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Marque</th>
+                <th>Année</th>
+                <th>Lien</th>
+                <th>Nouveauté</th>
+                <th style="padding: 24px 0;">Modifié le </th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -36,21 +36,20 @@
                 <td>{{ clothes.Novelty ? 'Yes' : 'No' }}</td>
                 <td>{{ clothes.UpdateTime ? clothes.UpdateTime|date('Y-m-d H:i') : '' }}</td>
                 <td>
-                    <a href="{{ path('clothes_edit', {'id': clothes.id}) }}" class="btn btn-outline-info mb-1" style="width:100px;">edit</a>
+                    <a href="{{ path('clothes_edit', {'id': clothes.id}) }}" class="btn btn-outline-info mb-1" style="width:122px;">Éditer</a>
                     <form method="post" action="{{ path('clothes_delete', {'id': clothes.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ clothes.id) }}">
-                        <button class="btn btn-outline-danger" style="width:100px;">Delete</button>
+                        <button class="btn btn-outline-danger" >Supprimer</button>
                     </form>
                 </td>
             </tr>
             
         {% else %}
             <tr>
-                <td colspan="9">no records found</td>
+                <td colspan="9">Aucun vêtement trouvé, ajouté en à travers la page administrateur</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-    <a href="{{ path('clothes_new') }}" class="btn btn-warning btn-lg btn-block">Create new</a>
 {% endblock %}

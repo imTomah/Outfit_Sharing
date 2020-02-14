@@ -9,7 +9,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ClothesType extends AbstractType
@@ -36,21 +38,29 @@ class ClothesType extends AbstractType
                 ]
             ])
             ->add('Year', DateType::class, [
+                'label' => 'Année de sortie',
                 'format' => 'yyyy-MM-dd',
+                'years' => range(date('1990'), date('Y')),
             ])
-            // ->add('Link', TextareaType::class, [
-            //     'label', 'Lien',
-            //     'attr' => [
-            //         'placeholder' => 'Copier le lien vers le site de vente du produit'
-            //     ]
-            // ])
-            ->add('Novelty')
+            ->add('Link', TextType::class, [
+                'label' => 'Lien',
+                'attr' => [
+                    'placeholder' => 'Copier l\' url pour acheter le vetement']
+                ])
+            ->add('Novelty', CheckboxType::class, [
+                'label' => 'Nouveauté ?',
+                ])
+            
             ->add('category', EntityType::class, [
                 'choice_label'=> 'name',
                 'class'=> Category::class,
-                'label'=>'Category'
+                'label'=>'Catégorie'
             ])
-            ->add('UpdateTime')
+            ->add('Picture', TextType::class, [
+                'label' => 'Lien',
+                'attr' => [
+                    'placeholder' => 'Copier/Coller l\' url de l\'image']
+                ])
         ;
     }
 

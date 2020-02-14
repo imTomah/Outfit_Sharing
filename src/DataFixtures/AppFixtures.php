@@ -33,6 +33,7 @@ class AppFixtures extends Fixture
             ->setBrand('Supreme')
             ->setYear(\DateTime::createFromFormat('Y','2019'))
             ->setLink('https://www.supremenewyork.com/')
+            ->setPicture('https://www.google.fr/search?q=box+logo&safe=active&hl=fr&sxsrf=ACYBGNSngmHRHQsnuE0_N9Qrcv2if0CJrA:1581519977087&source=lnms&tbm=isch&sa=X&ved=2ahUKEwi63sGDpcznAhVpyoUKHXRsDZcQ_AUoAXoECAwQAw&biw=1440&bih=788#imgrc=kA1feA5d5mkmQM')
             ->setNovelty(false)
             ->setCategory($tabObj[0])
             ->setUpdateTime($dateNow);

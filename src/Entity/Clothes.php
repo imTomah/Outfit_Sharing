@@ -32,7 +32,7 @@ class Clothes
     private $Brand;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="datetime", nullable=false)
      */
     private $Year;
 
@@ -56,6 +56,11 @@ class Clothes
      * @ORM\JoinColumn(nullable=false)
      */
     private $Category;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Picture;
 
     public function getId(): ?int
     {
@@ -121,7 +126,7 @@ class Clothes
 
         return $this;
     }
-
+    
     public function getNovelty(): ?bool
     {
         return $this->Novelty;
@@ -154,6 +159,18 @@ class Clothes
     public function setCategory(?Category $Category): self
     {
         $this->Category = $Category;
+
+        return $this;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->Picture;
+    }
+
+    public function setPicture(string $Picture): self
+    {
+        $this->Picture = $Picture;
 
         return $this;
     }

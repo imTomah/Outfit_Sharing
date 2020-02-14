@@ -15,26 +15,26 @@
 </div>
         </div>
         <ol class="breadcrumb my-4 ml-4">
-            <li class="breadcrumb-item active">Home</li>
+            <li class="breadcrumb-item active">Accueil</li>
         </ol>
-        <h2 class="my-5 title_clothe">Clothes Index</h2>
+        <h2 class="my-5 title_clothe">Nouveauté</h2>
 <div class="container">
 <div class="row">
-    {% for clothes in clothes %}
+    {% for clothes in clothes|slice(0,4) %}
     <div class="card mb-3 mx-1 col" style="padding:0;">
   <h3 class="card-header">{{ clothes.Name }}</h3>
   <img style="height: auto; width: 100%; display: block;" src="{{ asset('images/hoods.png') }}" alt="Card image">
   <ul class="list-group list-group-flush">
   <div class="card-body">
-    <h6 class="card-subtitle text-muted mb-2">Brand :</h6>
+    <h6 class="card-subtitle text-muted mb-2">Marque :</h6>
     <h5 class="card-title">{{ clothes.Brand }}</h5>
   </div>
-    <li class="list-group-item">Price : {{ clothes.Price }} EUR</li>
-    <li class="list-group-item">Year : {{ clothes.Year ? clothes.Year|date('Y') : '' }}</li>
-    <li class="list-group-item">Novelty : {{ clothes.Novelty ? 'Yes' : 'No' }}</li>
+    <li class="list-group-item">Prix : {{ clothes.Price }} EUR</li>
+    <li class="list-group-item">Année : {{ clothes.Year ? clothes.Year|date('Y') : '' }}</li>
+    <li class="list-group-item">Nouveauté : {{ clothes.Novelty ? 'Oui' : 'Non' }}</li>
   </ul>
   <div class="card-body">
-    <a href="{{ clothes.Link }}" target="_blank" class="card-link btn btn-outline-warning">Buy it!</a>
+    <a href="{{ clothes.Link }}" target="_blank" class="card-link btn btn-outline-success">Acheter le!</a>
   </div>
   <div class="card-footer text-muted">
     {{ clothes.UpdateTime ? clothes.UpdateTime|date('Y-m-d') : '' }}
